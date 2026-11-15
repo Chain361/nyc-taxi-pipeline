@@ -10,5 +10,5 @@ SELECT d.year_month, d.taxi_type, d.source_rows_footer, d.read_rows, d.written_r
        g.gold_trips = d.written_rows AS gold_matches_silver
 FROM nyc_taxi.dq_reports d
 LEFT JOIN gold g ON g.year_month = d.year_month AND g.taxi_type = d.taxi_type
-WHERE d.year_month >= '2019-02'
+WHERE d.year_month BETWEEN '2024-01' AND '2024-06'
 ORDER BY d.year_month, d.taxi_type

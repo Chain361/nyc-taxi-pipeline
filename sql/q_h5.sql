@@ -1,9 +1,9 @@
--- H5: leading type per pickup zone over the whole period (all types and taxi-only).
+-- H5: leading type per pickup zone over H1 2024 (all types and taxi-only).
 -- Rows with null pickup_location_id (frequent in fhv) are excluded here; their count is in q_dq_summary.
 WITH zone_type AS (
   SELECT pickup_location_id, taxi_type, SUM(trips) AS trips
   FROM nyc_taxi.fact_zone_month
-  WHERE year_month >= '2019-02' AND pickup_location_id IS NOT NULL
+  WHERE year_month BETWEEN '2024-01' AND '2024-06' AND pickup_location_id IS NOT NULL
   GROUP BY pickup_location_id, taxi_type
 ),
 ranked AS (

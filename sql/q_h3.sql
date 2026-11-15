@@ -2,7 +2,7 @@
 WITH totals AS (
   SELECT taxi_type, SUM(trips) AS trips, SUM(trips - shared_trips) AS trips_excl_shared
   FROM nyc_taxi.fact_zone_month
-  WHERE year_month >= '2019-02'
+  WHERE year_month BETWEEN '2024-01' AND '2024-06'
   GROUP BY taxi_type
 ),
 definitions AS (

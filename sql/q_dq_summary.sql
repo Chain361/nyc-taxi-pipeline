@@ -1,4 +1,4 @@
--- DQ summary per type over all months; null = rule not applicable to the type.
+-- DQ summary per type over H1 2024; null = rule not applicable to the type.
 SELECT taxi_type,
        COUNT(*) AS months,
        SUM(CASE WHEN status = 'FAIL' THEN 1 ELSE 0 END) AS failed_months,
@@ -14,6 +14,6 @@ SELECT taxi_type,
        SUM(flags.shared) AS shared,
        ROUND(1 - CAST(SUM(written_rows) AS double) / SUM(read_rows), 6) AS reject_rate
 FROM nyc_taxi.dq_reports
-WHERE year_month >= '2019-02'
+WHERE year_month BETWEEN '2024-01' AND '2024-06'
 GROUP BY taxi_type
 ORDER BY taxi_type

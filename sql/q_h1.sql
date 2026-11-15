@@ -1,8 +1,8 @@
--- H1: type with the most total trips, Feb 2019 -> latest month (taxi-only and all types).
+-- H1: type with the most total trips, H1 2024 (Jan-Jun) (taxi-only and all types).
 WITH totals AS (
   SELECT taxi_type, SUM(trips) AS trips, MIN(year_month) AS first_month, MAX(year_month) AS last_month
   FROM nyc_taxi.fact_zone_month
-  WHERE year_month >= '2019-02'
+  WHERE year_month BETWEEN '2024-01' AND '2024-06'
   GROUP BY taxi_type
 ),
 views AS (

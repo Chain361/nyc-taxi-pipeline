@@ -1,5 +1,13 @@
 scope,shared,taxi_type,trips,rank
-all_types,excl_shared,green,56289,1
-all_types,with_shared,green,56289,1
-taxi_only,excl_shared,green,56289,1
-taxi_only,with_shared,green,56289,1
+all_types,excl_shared,hvfhv,119245325,1
+all_types,excl_shared,yellow,20009098,2
+all_types,excl_shared,fhv,8119228,3
+all_types,excl_shared,green,338249,4
+all_types,with_shared,hvfhv,120853735,1
+all_types,with_shared,yellow,20009098,2
+all_types,with_shared,fhv,8119228,3
+all_types,with_shared,green,338249,4
+taxi_only,excl_shared,yellow,20009098,1
+taxi_only,excl_shared,green,338249,2
+taxi_only,with_shared,yellow,20009098,1
+taxi_only,with_shared,green,338249,2

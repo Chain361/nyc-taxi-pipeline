@@ -17,7 +17,7 @@ SQL_DIR, SAMPLES_DIR = ROOT / "sql", ROOT / "samples"
 
 # output csv -> sql file (or inline query)
 EXPORTS = {
-    "fact_zone_month.csv": "SELECT * FROM nyc_taxi.fact_zone_month ORDER BY year_month, taxi_type, pickup_location_id",
+    "fact_zone_month.csv": "SELECT * FROM nyc_taxi.fact_zone_month WHERE year_month BETWEEN '2024-01' AND '2024-06' ORDER BY year_month, taxi_type, pickup_location_id",
     "silver_sample_100.csv": "q_silver_sample.sql",
     "dq_summary.csv": "q_dq_summary.sql",
     "answer_original_h1_2024.csv": "q_original_h1_2024.sql",

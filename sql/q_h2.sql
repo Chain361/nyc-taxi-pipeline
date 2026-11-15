@@ -2,7 +2,7 @@
 WITH monthly AS (
   SELECT year_month, taxi_type, SUM(trips) AS trips
   FROM nyc_taxi.fact_zone_month
-  WHERE year_month >= '2019-02'
+  WHERE year_month BETWEEN '2024-01' AND '2024-06'
   GROUP BY year_month, taxi_type
 ),
 ranked AS (

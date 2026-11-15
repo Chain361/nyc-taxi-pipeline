@@ -1,3 +1,7 @@
 view,taxi_type,trips,share_pct,rank
-all_types,green,56289,100.0,1
-taxi_only,green,56289,100.0,1
+all_types,hvfhv,120853735,80.94,1
+all_types,yellow,20009098,13.4,2
+all_types,fhv,8119228,5.44,3
+all_types,green,338249,0.23,4
+taxi_only,yellow,20009098,98.34,1
+taxi_only,green,338249,1.66,2

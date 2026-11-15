@@ -44,7 +44,7 @@ def by_zone(df: pd.DataFrame) -> pd.DataFrame:
 
 def main() -> None:
     st.set_page_config(page_title="NYC TLC trip types", layout="wide")
-    st.title("Which TLC trip type is used most? (Feb 2019 → latest)")
+    st.title("Which TLC trip type is used most? (H1 2024)")
     fact, zones = load_fact(), load_zones()
 
     taxi_only = st.sidebar.radio("Types", ["All types", "Taxi only (yellow + green)"]) != "All types"
@@ -69,7 +69,7 @@ def main() -> None:
     monthly = by_zone(df[df["year_month"] == month]).groupby("zone_id", as_index=False)["trips"].sum()
     st.plotly_chart(choropleth(monthly, zones, "trips"), use_container_width=True)
 
-    st.header("Dominant type per zone, whole period (H5)")
+    st.header("Dominant type per zone, H1 2024 (H5)")
     totals = by_zone(df).groupby(["zone_id", "taxi_type"], as_index=False)["trips"].sum()
     dominant = totals.loc[totals.groupby("zone_id")["trips"].idxmax()]
     st.plotly_chart(choropleth(dominant, zones, "taxi_type", color_discrete_map=TYPE_COLORS,

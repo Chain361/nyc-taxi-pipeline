@@ -1,2 +1,5 @@
 taxi_type,months,failed_months,source_rows_footer,read_rows,written_rows,out_of_month,dropoff_before_pickup,negative_amount,negative_distance,passenger_count_invalid,pickup_location_null,shared,reject_rate
-green,1,0,56551,56551,56289,2,76,186,0,3927,0,0,0.004633
+fhv,6,0,8119228,8119228,8119228,0,0,,,,6359783,0,0.0
+green,6,0,339807,339807,338249,44,335,1187,0,17336,0,0,0.004585
+hvfhv,6,0,120864668,120864668,120853735,0,12,10921,0,,0,1608546,9e-05
+yellow,6,0,20332093,20332093,20009098,149,6177,316694,0,2197094,0,0,0.015886

@@ -1,3 +1,7 @@
 view,taxi_type,trips,first_month,last_month,share_pct,rank
-all_types,green,56289,2024-01,2024-01,100.0,1
-taxi_only,green,56289,2024-01,2024-01,100.0,1
+all_types,hvfhv,120853735,2024-01,2024-06,80.94,1
+all_types,yellow,20009098,2024-01,2024-06,13.4,2
+all_types,fhv,8119228,2024-01,2024-06,5.44,3
+all_types,green,338249,2024-01,2024-06,0.23,4
+taxi_only,yellow,20009098,2024-01,2024-06,98.34,1
+taxi_only,green,338249,2024-01,2024-06,1.66,2
