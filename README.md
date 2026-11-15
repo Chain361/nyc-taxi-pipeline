@@ -270,7 +270,7 @@ Rules are data in [`src/lib/taxi_types.py`](src/lib/taxi_types.py) and are appli
 
 ## 11. Limitations
 
-- Pre-2019 out of scope: HVFHV did not exist and pre-2017 records use lat/lon.
+- Pre-2019 out of scope: HVFHV did not exist, so Uber/Lyft sit inside FHV and the types can't be compared. Technically 2011-01 → 2019-01 would run without `hvfhv` (current TLC parquet already has `PULocationID`), but 2009–2010 yellow uses other column names and lat/lon only, so Silver fails on it.
 - Late records that arrive in another month's file are dropped (`out_of_month`).
 - Row meaning differs: a taxi row is one metered trip, while an FHV/HVFHV row is one booking. Pooled rides are counted per passenger booking.
 - Lyft (bases B02510, B02844) over-flags `SR_Flag` (also unmatched shared requests), so FHV `shared_trips` is an upper bound.
@@ -283,7 +283,7 @@ Rules are data in [`src/lib/taxi_types.py`](src/lib/taxi_types.py) and are appli
 
 - Revenue comparison with a harmonised fare definition.
 - Per-company HVFHV split (`hvfhs_license_num` is already in Silver as `operator`).
-- Pre-2019 coverage using a spatial join on lat/lon.
+- 2009–2010 yellow coverage: alternate column names in `COLUMN_MAP` plus a spatial join from lat/lon to zones.
 - Wait-time metrics (`request_datetime`, `on_scene_datetime`).
 
 ## 13. Learning reflection
