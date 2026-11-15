@@ -1,85 +1,82 @@
 {
-    "Comment": "NYC Taxi Lakehouse End-to-End Pipeline Orchestration",
-    "StartAt": "RunBronzeToSilverJob",
-    "States": {
-        "RunBronzeToSilverJob": {
+  "Comment": "NYC TLC lakehouse: per-month Ingest -> Silver -> Gold, then DimZone. ${...} values are CloudFormation DefinitionSubstitutions.",
+  "StartAt": "ProcessMonths",
+  "States": {
+    "ProcessMonths": {
+      "Type": "Map",
+      "ItemsPath": "$.months",
+      "MaxConcurrency": ${MaxConcurrency},
+      "ItemSelector": {
+        "year_month.$": "$$.Map.Item.Value",
+        "taxi_types.$": "States.JsonToString($.taxi_types)"
+      },
+      "ItemProcessor": {
+        "ProcessorConfig": {"Mode": "INLINE"},
+        "StartAt": "Ingest",
+        "States": {
+          "Ingest": {
             "Type": "Task",
             "Resource": "arn:aws:states:::glue:startJobRun.sync",
             "Parameters": {
-                "JobName": "nyc-taxi-bronze-to-silver",
-                "Arguments": {
-                    "--S3_BUCKET_NAME": "nyc-taxi-lakehouse-6709616681"
-                }
+              "JobName": "${IngestJob}",
+              "Arguments": {"--YEAR_MONTH.$": "$.year_month", "--TAXI_TYPES.$": "$.taxi_types"}
             },
-            "Retry": [
-                {
-                    "ErrorEquals": [
-                        "Glue.ResourceNumberLimitExceededException",
-                        "States.Timeout"
-                    ],
-                    "IntervalSeconds": 30,
-                    "MaxAttempts": 2,
-                    "BackoffRate": 2.0
-                }
-            ],
-            "Catch": [
-                {
-                    "ErrorEquals": [
-                        "States.ALL"
-                    ],
-                    "Next": "PipelineFailed"
-                }
-            ],
-            "Next": "RunSilverToGoldJob"
-        },
-        "RunSilverToGoldJob": {
+            "TimeoutSeconds": 3600,
+            "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException", "Glue.AWSGlueException", "States.TaskFailed"], "IntervalSeconds": 60, "MaxAttempts": 2, "BackoffRate": 2}],
+            "ResultPath": null,
+            "Next": "Silver"
+          },
+          "Silver": {
             "Type": "Task",
             "Resource": "arn:aws:states:::glue:startJobRun.sync",
             "Parameters": {
-                "JobName": "silver_to_gold",
-                "Arguments": {
-                    "--S3_BUCKET_NAME": "nyc-taxi-lakehouse-6709616681"
-                }
+              "JobName": "${SilverJob}",
+              "Arguments": {"--YEAR_MONTH.$": "$.year_month", "--TAXI_TYPES.$": "$.taxi_types"}
             },
-            "Catch": [
-                {
-                    "ErrorEquals": [
-                        "States.ALL"
-                    ],
-                    "Next": "PipelineFailed"
-                }
-            ],
-            "Next": "RefreshAthenaPartitions"
-        },
-        "RefreshAthenaPartitions": {
+            "TimeoutSeconds": 3600,
+            "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException", "Glue.AWSGlueException", "States.TaskFailed"], "IntervalSeconds": 60, "MaxAttempts": 2, "BackoffRate": 2}],
+            "ResultPath": null,
+            "Next": "Gold"
+          },
+          "Gold": {
             "Type": "Task",
-            "Resource": "arn:aws:states:::athena:startQueryExecution.sync",
+            "Resource": "arn:aws:states:::glue:startJobRun.sync",
             "Parameters": {
-                "QueryString": "MSCK REPAIR TABLE nyc_taxi_db.gold_monthly_kpi;",
-                "QueryExecutionContext": {
-                    "Database": "nyc_taxi_db"
-                },
-                "ResultConfiguration": {
-                    "OutputLocation": "s3://nyc-taxi-athena-results-67/"
-                }
+              "JobName": "${GoldJob}",
+              "Arguments": {"--YEAR_MONTH.$": "$.year_month"}
             },
-            "Catch": [
-                {
-                    "ErrorEquals": [
-                        "States.ALL"
-                    ],
-                    "Next": "PipelineFailed"
-                }
-            ],
-            "Next": "PipelineSucceeded"
-        },
-        "PipelineSucceeded": {
-            "Type": "Succeed"
-        },
-        "PipelineFailed": {
-            "Type": "Fail",
-            "Cause": "Pipeline failed during Glue or Athena task execution.",
-            "Error": "PipelineExecutionError"
+            "TimeoutSeconds": 1800,
+            "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException", "Glue.AWSGlueException", "States.TaskFailed"], "IntervalSeconds": 60, "MaxAttempts": 2, "BackoffRate": 2}],
+            "ResultPath": null,
+            "End": true
+          }
         }
-    }
+      },
+      "ResultPath": null,
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "NotifyFailure"}],
+      "Next": "DimZone"
+    },
+    "DimZone": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {"JobName": "${DimZoneJob}"},
+      "TimeoutSeconds": 1800,
+      "Retry": [{"ErrorEquals": ["Glue.ConcurrentRunsExceededException", "Glue.AWSGlueException", "States.TaskFailed"], "IntervalSeconds": 60, "MaxAttempts": 2, "BackoffRate": 2}],
+      "ResultPath": null,
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.error", "Next": "NotifyFailure"}],
+      "Next": "PipelineSucceeded"
+    },
+    "NotifyFailure": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "${AlertTopicArn}",
+        "Subject": "NYC taxi pipeline failed",
+        "Message.$": "States.JsonToString($.error)"
+      },
+      "Next": "PipelineFailed"
+    },
+    "PipelineSucceeded": {"Type": "Succeed"},
+    "PipelineFailed": {"Type": "Fail", "Error": "PipelineExecutionError", "Cause": "See SNS alert / execution history for the failing month and job."}
+  }
 }

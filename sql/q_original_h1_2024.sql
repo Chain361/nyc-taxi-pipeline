@@ -1,0 +1,17 @@
+-- Original question: most used type in H1 2024. Two views: taxi-only (yellow vs green, as in S1) and all 4 types.
+WITH totals AS (
+  SELECT taxi_type, SUM(trips) AS trips
+  FROM nyc_taxi.fact_zone_month
+  WHERE year_month BETWEEN '2024-01' AND '2024-06'
+  GROUP BY taxi_type
+),
+views AS (
+  SELECT 'taxi_only' AS view, * FROM totals WHERE taxi_type IN ('yellow', 'green')
+  UNION ALL
+  SELECT 'all_types' AS view, * FROM totals
+)
+SELECT view, taxi_type, trips,
+       ROUND(100.0 * trips / SUM(trips) OVER (PARTITION BY view), 2) AS share_pct,
+       RANK() OVER (PARTITION BY view ORDER BY trips DESC) AS rank
+FROM views
+ORDER BY view, rank

@@ -1,15 +1,8 @@
-dotenv
-
-# AWS SDK & Networking (Phase 1: Ingestion)
+# Local tooling: export_samples.py, tests. Glue jobs use the Glue runtime (pyspark, boto3, pyarrow, requests).
 boto3>=1.34.0
-botocore>=1.34.0
 requests>=2.31.0
-
-# Query Engine & Data Handling (Phase 3 & 5: Athena & Streamlit)
-pyathena>=3.0.0
-pandas>=2.1.0
 pyarrow>=15.0.0
-
-# Serving & Visualization (Phase 5: UI Dashboard)
-streamlit>=1.32.0
-plotly>=5.20.0
+pyathena[pandas]>=3.0.0
+pandas>=2.1.0
+pytest>=8.0.0
+-r app/requirements.txt

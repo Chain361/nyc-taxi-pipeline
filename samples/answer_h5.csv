@@ -1,0 +1,423 @@
+view,pickup_location_id,borough,zone,leading_type,trips
+all_types,3,Bronx,Allerton/Pelham Gardens,green,5
+all_types,18,Bronx,Bedford Park,green,18
+all_types,20,Bronx,Belmont,green,9
+all_types,31,Bronx,Bronx Park,green,3
+all_types,32,Bronx,Bronxdale,green,8
+all_types,47,Bronx,Claremont/Bathgate,green,30
+all_types,51,Bronx,Co-Op City,green,25
+all_types,60,Bronx,Crotona Park East,green,16
+all_types,69,Bronx,East Concourse/Concourse Village,green,67
+all_types,78,Bronx,East Tremont,green,26
+all_types,81,Bronx,Eastchester,green,5
+all_types,94,Bronx,Fordham South,green,12
+all_types,119,Bronx,Highbridge,green,23
+all_types,126,Bronx,Hunts Point,green,13
+all_types,136,Bronx,Kingsbridge Heights,green,25
+all_types,147,Bronx,Longwood,green,10
+all_types,159,Bronx,Melrose South,green,56
+all_types,167,Bronx,Morrisania/Melrose,green,30
+all_types,168,Bronx,Mott Haven/Port Morris,green,69
+all_types,169,Bronx,Mount Hope,green,41
+all_types,174,Bronx,Norwood,green,24
+all_types,182,Bronx,Parkchester,green,21
+all_types,183,Bronx,Pelham Bay,green,6
+all_types,184,Bronx,Pelham Bay Park,green,1
+all_types,185,Bronx,Pelham Parkway,green,9
+all_types,200,Bronx,Riverdale/North Riverdale/Fieldston,green,7
+all_types,208,Bronx,Schuylerville/Edgewater Park,green,13
+all_types,212,Bronx,Soundview/Bruckner,green,32
+all_types,213,Bronx,Soundview/Castle Hill,green,22
+all_types,220,Bronx,Spuyten Duyvil/Kingsbridge,green,16
+all_types,235,Bronx,University Heights/Morris Heights,green,29
+all_types,240,Bronx,Van Cortlandt Park,green,2
+all_types,241,Bronx,Van Cortlandt Village,green,13
+all_types,242,Bronx,Van Nest/Morris Park,green,43
+all_types,247,Bronx,West Concourse,green,81
+all_types,248,Bronx,West Farms/Bronx River,green,13
+all_types,250,Bronx,Westchester Village/Unionport,green,10
+all_types,254,Bronx,Williamsbridge/Olinville,green,15
+all_types,259,Bronx,Woodlawn/Wakefield,green,11
+all_types,11,Brooklyn,Bath Beach,green,6
+all_types,14,Brooklyn,Bay Ridge,green,25
+all_types,17,Brooklyn,Bedford,green,84
+all_types,21,Brooklyn,Bensonhurst East,green,21
+all_types,22,Brooklyn,Bensonhurst West,green,12
+all_types,25,Brooklyn,Boerum Hill,green,318
+all_types,26,Brooklyn,Borough Park,green,18
+all_types,29,Brooklyn,Brighton Beach,green,33
+all_types,33,Brooklyn,Brooklyn Heights,green,506
+all_types,34,Brooklyn,Brooklyn Navy Yard,green,6
+all_types,35,Brooklyn,Brownsville,green,36
+all_types,36,Brooklyn,Bushwick North,green,59
+all_types,37,Brooklyn,Bushwick South,green,53
+all_types,39,Brooklyn,Canarsie,green,35
+all_types,40,Brooklyn,Carroll Gardens,green,35
+all_types,49,Brooklyn,Clinton Hill,green,77
+all_types,52,Brooklyn,Cobble Hill,green,129
+all_types,54,Brooklyn,Columbia Street,green,7
+all_types,55,Brooklyn,Coney Island,green,159
+all_types,61,Brooklyn,Crown Heights North,green,124
+all_types,62,Brooklyn,Crown Heights South,green,40
+all_types,63,Brooklyn,Cypress Hills,green,13
+all_types,66,Brooklyn,DUMBO/Vinegar Hill,green,595
+all_types,65,Brooklyn,Downtown Brooklyn/MetroTech,green,1619
+all_types,67,Brooklyn,Dyker Heights,green,10
+all_types,71,Brooklyn,East Flatbush/Farragut,green,33
+all_types,72,Brooklyn,East Flatbush/Remsen Village,green,21
+all_types,76,Brooklyn,East New York,green,72
+all_types,77,Brooklyn,East New York/Pennsylvania Avenue,green,12
+all_types,80,Brooklyn,East Williamsburg,green,172
+all_types,85,Brooklyn,Erasmus,green,14
+all_types,89,Brooklyn,Flatbush/Ditmas Park,green,59
+all_types,91,Brooklyn,Flatlands,green,25
+all_types,97,Brooklyn,Fort Greene,green,1897
+all_types,106,Brooklyn,Gowanus,green,21
+all_types,108,Brooklyn,Gravesend,green,16
+all_types,112,Brooklyn,Greenpoint,green,132
+all_types,123,Brooklyn,Homecrest,green,20
+all_types,133,Brooklyn,Kensington,green,14
+all_types,149,Brooklyn,Madison,green,11
+all_types,150,Brooklyn,Manhattan Beach,green,13
+all_types,154,Brooklyn,Marine Park/Floyd Bennett Field,green,4
+all_types,155,Brooklyn,Marine Park/Mill Basin,green,17
+all_types,165,Brooklyn,Midwood,green,32
+all_types,177,Brooklyn,Ocean Hill,green,24
+all_types,178,Brooklyn,Ocean Parkway South,green,2
+all_types,181,Brooklyn,Park Slope,green,219
+all_types,189,Brooklyn,Prospect Heights,green,52
+all_types,190,Brooklyn,Prospect Park,green,6
+all_types,188,Brooklyn,Prospect-Lefferts Gardens,green,85
+all_types,195,Brooklyn,Red Hook,green,103
+all_types,210,Brooklyn,Sheepshead Bay,green,192
+all_types,217,Brooklyn,South Williamsburg,green,28
+all_types,222,Brooklyn,Starrett City,green,8
+all_types,225,Brooklyn,Stuyvesant Heights,green,73
+all_types,227,Brooklyn,Sunset Park East,green,12
+all_types,228,Brooklyn,Sunset Park West,green,34
+all_types,255,Brooklyn,Williamsburg (North Side),green,188
+all_types,256,Brooklyn,Williamsburg (South Side),green,90
+all_types,257,Brooklyn,Windsor Terrace,green,2
+all_types,1,EWR,Newark Airport,green,3
+all_types,24,Manhattan,Bloomingdale,green,388
+all_types,41,Manhattan,Central Harlem,green,2575
+all_types,42,Manhattan,Central Harlem North,green,1169
+all_types,43,Manhattan,Central Park,green,2764
+all_types,45,Manhattan,Chinatown,green,2
+all_types,48,Manhattan,Clinton East,green,1
+all_types,74,Manhattan,East Harlem North,green,12098
+all_types,75,Manhattan,East Harlem South,green,8439
+all_types,87,Manhattan,Financial District North,green,1
+all_types,88,Manhattan,Financial District South,green,1
+all_types,116,Manhattan,Hamilton Heights,green,438
+all_types,120,Manhattan,Highbridge Park,green,6
+all_types,125,Manhattan,Hudson Sq,green,2
+all_types,127,Manhattan,Inwood,green,57
+all_types,128,Manhattan,Inwood Hill Park,green,2
+all_types,137,Manhattan,Kips Bay,green,2
+all_types,140,Manhattan,Lenox Hill East,green,2
+all_types,142,Manhattan,Lincoln Square East,green,1
+all_types,143,Manhattan,Lincoln Square West,green,1
+all_types,151,Manhattan,Manhattan Valley,green,6
+all_types,152,Manhattan,Manhattanville,green,254
+all_types,153,Manhattan,Marble Hill,green,1
+all_types,162,Manhattan,Midtown East,green,1
+all_types,166,Manhattan,Morningside Heights,green,2645
+all_types,194,Manhattan,Randalls Island,green,1
+all_types,202,Manhattan,Roosevelt Island,green,32
+all_types,209,Manhattan,Seaport,green,2
+all_types,229,Manhattan,Sutton Place/Turtle Bay North,green,1
+all_types,230,Manhattan,Times Sq/Theatre District,green,1
+all_types,231,Manhattan,TriBeCa/Civic Center,green,1
+all_types,232,Manhattan,Two Bridges/Seward Park,green,1
+all_types,236,Manhattan,Upper East Side North,green,322
+all_types,237,Manhattan,Upper East Side South,green,1
+all_types,238,Manhattan,Upper West Side North,green,17
+all_types,239,Manhattan,Upper West Side South,green,2
+all_types,243,Manhattan,Washington Heights North,green,151
+all_types,244,Manhattan,Washington Heights South,green,1297
+all_types,262,Manhattan,Yorkville East,green,3
+all_types,263,Manhattan,Yorkville West,green,51
+all_types,265,N/A,Outside of NYC,green,29
+all_types,7,Queens,Astoria,green,1514
+all_types,9,Queens,Auburndale,green,5
+all_types,10,Queens,Baisley Park,green,22
+all_types,15,Queens,Bay Terrace/Fort Totten,green,6
+all_types,16,Queens,Bayside,green,9
+all_types,19,Queens,Bellerose,green,9
+all_types,27,Queens,Breezy Point/Fort Tilden/Riis Beach,green,1
+all_types,28,Queens,Briarwood/Jamaica Hills,green,44
+all_types,38,Queens,Cambria Heights,green,7
+all_types,53,Queens,College Point,green,15
+all_types,57,Queens,Corona,green,4
+all_types,56,Queens,Corona,green,38
+all_types,64,Queens,Douglaston,green,1
+all_types,70,Queens,East Elmhurst,green,52
+all_types,73,Queens,East Flushing,green,14
+all_types,82,Queens,Elmhurst,green,2605
+all_types,83,Queens,Elmhurst/Maspeth,green,523
+all_types,86,Queens,Far Rockaway,green,19
+all_types,92,Queens,Flushing,green,378
+all_types,93,Queens,Flushing Meadows-Corona Park,green,14
+all_types,95,Queens,Forest Hills,green,2899
+all_types,96,Queens,Forest Park/Highland Park,green,1
+all_types,98,Queens,Fresh Meadows,green,13
+all_types,101,Queens,Glen Oaks,green,6
+all_types,102,Queens,Glendale,green,18
+all_types,117,Queens,Hammels/Arverne,green,9
+all_types,121,Queens,Hillcrest/Pomonok,green,35
+all_types,122,Queens,Hollis,green,20
+all_types,124,Queens,Howard Beach,green,7
+all_types,132,Queens,JFK Airport,green,22
+all_types,129,Queens,Jackson Heights,green,1386
+all_types,130,Queens,Jamaica,green,1336
+all_types,131,Queens,Jamaica Estates,green,23
+all_types,134,Queens,Kew Gardens,green,647
+all_types,135,Queens,Kew Gardens Hills,green,25
+all_types,138,Queens,LaGuardia Airport,green,29
+all_types,139,Queens,Laurelton,green,12
+all_types,145,Queens,Long Island City/Hunters Point,green,106
+all_types,146,Queens,Long Island City/Queens Plaza,green,98
+all_types,157,Queens,Maspeth,green,87
+all_types,160,Queens,Middle Village,green,14
+all_types,171,Queens,Murray Hill-Queens,green,15
+all_types,173,Queens,North Corona,green,57
+all_types,175,Queens,Oakland Gardens,green,2
+all_types,179,Queens,Old Astoria,green,187
+all_types,180,Queens,Ozone Park,green,9
+all_types,191,Queens,Queens Village,green,32
+all_types,192,Queens,Queensboro Hill,green,13
+all_types,193,Queens,Queensbridge/Ravenswood,green,337
+all_types,196,Queens,Rego Park,green,324
+all_types,197,Queens,Richmond Hill,green,45
+all_types,198,Queens,Ridgewood,green,22
+all_types,201,Queens,Rockaway Park,green,2
+all_types,203,Queens,Rosedale,green,6
+all_types,205,Queens,Saint Albans,green,12
+all_types,207,Queens,Saint Michaels Cemetery/Woodside,green,12
+all_types,215,Queens,South Jamaica,green,41
+all_types,216,Queens,South Ozone Park,green,48
+all_types,218,Queens,Springfield Gardens North,green,12
+all_types,219,Queens,Springfield Gardens South,green,10
+all_types,223,Queens,Steinway,green,369
+all_types,226,Queens,Sunnyside,green,197
+all_types,252,Queens,Whitestone,green,10
+all_types,253,Queens,Willets Point,green,3
+all_types,258,Queens,Woodhaven,green,12
+all_types,260,Queens,Woodside,green,977
+all_types,23,Staten Island,Bloomfield/Emerson Hill,green,1
+all_types,118,Staten Island,Heartland Village/Todt Hill,green,1
+all_types,206,Staten Island,Saint George/New Brighton,green,2
+all_types,221,Staten Island,Stapleton,green,1
+all_types,264,Unknown,N/A,green,104
+taxi_only,3,Bronx,Allerton/Pelham Gardens,green,5
+taxi_only,18,Bronx,Bedford Park,green,18
+taxi_only,20,Bronx,Belmont,green,9
+taxi_only,31,Bronx,Bronx Park,green,3
+taxi_only,32,Bronx,Bronxdale,green,8
+taxi_only,47,Bronx,Claremont/Bathgate,green,30
+taxi_only,51,Bronx,Co-Op City,green,25
+taxi_only,60,Bronx,Crotona Park East,green,16
+taxi_only,69,Bronx,East Concourse/Concourse Village,green,67
+taxi_only,78,Bronx,East Tremont,green,26
+taxi_only,81,Bronx,Eastchester,green,5
+taxi_only,94,Bronx,Fordham South,green,12
+taxi_only,119,Bronx,Highbridge,green,23
+taxi_only,126,Bronx,Hunts Point,green,13
+taxi_only,136,Bronx,Kingsbridge Heights,green,25
+taxi_only,147,Bronx,Longwood,green,10
+taxi_only,159,Bronx,Melrose South,green,56
+taxi_only,167,Bronx,Morrisania/Melrose,green,30
+taxi_only,168,Bronx,Mott Haven/Port Morris,green,69
+taxi_only,169,Bronx,Mount Hope,green,41
+taxi_only,174,Bronx,Norwood,green,24
+taxi_only,182,Bronx,Parkchester,green,21
+taxi_only,183,Bronx,Pelham Bay,green,6
+taxi_only,184,Bronx,Pelham Bay Park,green,1
+taxi_only,185,Bronx,Pelham Parkway,green,9
+taxi_only,200,Bronx,Riverdale/North Riverdale/Fieldston,green,7
+taxi_only,208,Bronx,Schuylerville/Edgewater Park,green,13
+taxi_only,212,Bronx,Soundview/Bruckner,green,32
+taxi_only,213,Bronx,Soundview/Castle Hill,green,22
+taxi_only,220,Bronx,Spuyten Duyvil/Kingsbridge,green,16
+taxi_only,235,Bronx,University Heights/Morris Heights,green,29
+taxi_only,240,Bronx,Van Cortlandt Park,green,2
+taxi_only,241,Bronx,Van Cortlandt Village,green,13
+taxi_only,242,Bronx,Van Nest/Morris Park,green,43
+taxi_only,247,Bronx,West Concourse,green,81
+taxi_only,248,Bronx,West Farms/Bronx River,green,13
+taxi_only,250,Bronx,Westchester Village/Unionport,green,10
+taxi_only,254,Bronx,Williamsbridge/Olinville,green,15
+taxi_only,259,Bronx,Woodlawn/Wakefield,green,11
+taxi_only,11,Brooklyn,Bath Beach,green,6
+taxi_only,14,Brooklyn,Bay Ridge,green,25
+taxi_only,17,Brooklyn,Bedford,green,84
+taxi_only,21,Brooklyn,Bensonhurst East,green,21
+taxi_only,22,Brooklyn,Bensonhurst West,green,12
+taxi_only,25,Brooklyn,Boerum Hill,green,318
+taxi_only,26,Brooklyn,Borough Park,green,18
+taxi_only,29,Brooklyn,Brighton Beach,green,33
+taxi_only,33,Brooklyn,Brooklyn Heights,green,506
+taxi_only,34,Brooklyn,Brooklyn Navy Yard,green,6
+taxi_only,35,Brooklyn,Brownsville,green,36
+taxi_only,36,Brooklyn,Bushwick North,green,59
+taxi_only,37,Brooklyn,Bushwick South,green,53
+taxi_only,39,Brooklyn,Canarsie,green,35
+taxi_only,40,Brooklyn,Carroll Gardens,green,35
+taxi_only,49,Brooklyn,Clinton Hill,green,77
+taxi_only,52,Brooklyn,Cobble Hill,green,129
+taxi_only,54,Brooklyn,Columbia Street,green,7
+taxi_only,55,Brooklyn,Coney Island,green,159
+taxi_only,61,Brooklyn,Crown Heights North,green,124
+taxi_only,62,Brooklyn,Crown Heights South,green,40
+taxi_only,63,Brooklyn,Cypress Hills,green,13
+taxi_only,66,Brooklyn,DUMBO/Vinegar Hill,green,595
+taxi_only,65,Brooklyn,Downtown Brooklyn/MetroTech,green,1619
+taxi_only,67,Brooklyn,Dyker Heights,green,10
+taxi_only,71,Brooklyn,East Flatbush/Farragut,green,33
+taxi_only,72,Brooklyn,East Flatbush/Remsen Village,green,21
+taxi_only,76,Brooklyn,East New York,green,72
+taxi_only,77,Brooklyn,East New York/Pennsylvania Avenue,green,12
+taxi_only,80,Brooklyn,East Williamsburg,green,172
+taxi_only,85,Brooklyn,Erasmus,green,14
+taxi_only,89,Brooklyn,Flatbush/Ditmas Park,green,59
+taxi_only,91,Brooklyn,Flatlands,green,25
+taxi_only,97,Brooklyn,Fort Greene,green,1897
+taxi_only,106,Brooklyn,Gowanus,green,21
+taxi_only,108,Brooklyn,Gravesend,green,16
+taxi_only,112,Brooklyn,Greenpoint,green,132
+taxi_only,123,Brooklyn,Homecrest,green,20
+taxi_only,133,Brooklyn,Kensington,green,14
+taxi_only,149,Brooklyn,Madison,green,11
+taxi_only,150,Brooklyn,Manhattan Beach,green,13
+taxi_only,154,Brooklyn,Marine Park/Floyd Bennett Field,green,4
+taxi_only,155,Brooklyn,Marine Park/Mill Basin,green,17
+taxi_only,165,Brooklyn,Midwood,green,32
+taxi_only,177,Brooklyn,Ocean Hill,green,24
+taxi_only,178,Brooklyn,Ocean Parkway South,green,2
+taxi_only,181,Brooklyn,Park Slope,green,219
+taxi_only,189,Brooklyn,Prospect Heights,green,52
+taxi_only,190,Brooklyn,Prospect Park,green,6
+taxi_only,188,Brooklyn,Prospect-Lefferts Gardens,green,85
+taxi_only,195,Brooklyn,Red Hook,green,103
+taxi_only,210,Brooklyn,Sheepshead Bay,green,192
+taxi_only,217,Brooklyn,South Williamsburg,green,28
+taxi_only,222,Brooklyn,Starrett City,green,8
+taxi_only,225,Brooklyn,Stuyvesant Heights,green,73
+taxi_only,227,Brooklyn,Sunset Park East,green,12
+taxi_only,228,Brooklyn,Sunset Park West,green,34
+taxi_only,255,Brooklyn,Williamsburg (North Side),green,188
+taxi_only,256,Brooklyn,Williamsburg (South Side),green,90
+taxi_only,257,Brooklyn,Windsor Terrace,green,2
+taxi_only,1,EWR,Newark Airport,green,3
+taxi_only,24,Manhattan,Bloomingdale,green,388
+taxi_only,41,Manhattan,Central Harlem,green,2575
+taxi_only,42,Manhattan,Central Harlem North,green,1169
+taxi_only,43,Manhattan,Central Park,green,2764
+taxi_only,45,Manhattan,Chinatown,green,2
+taxi_only,48,Manhattan,Clinton East,green,1
+taxi_only,74,Manhattan,East Harlem North,green,12098
+taxi_only,75,Manhattan,East Harlem South,green,8439
+taxi_only,87,Manhattan,Financial District North,green,1
+taxi_only,88,Manhattan,Financial District South,green,1
+taxi_only,116,Manhattan,Hamilton Heights,green,438
+taxi_only,120,Manhattan,Highbridge Park,green,6
+taxi_only,125,Manhattan,Hudson Sq,green,2
+taxi_only,127,Manhattan,Inwood,green,57
+taxi_only,128,Manhattan,Inwood Hill Park,green,2
+taxi_only,137,Manhattan,Kips Bay,green,2
+taxi_only,140,Manhattan,Lenox Hill East,green,2
+taxi_only,142,Manhattan,Lincoln Square East,green,1
+taxi_only,143,Manhattan,Lincoln Square West,green,1
+taxi_only,151,Manhattan,Manhattan Valley,green,6
+taxi_only,152,Manhattan,Manhattanville,green,254
+taxi_only,153,Manhattan,Marble Hill,green,1
+taxi_only,162,Manhattan,Midtown East,green,1
+taxi_only,166,Manhattan,Morningside Heights,green,2645
+taxi_only,194,Manhattan,Randalls Island,green,1
+taxi_only,202,Manhattan,Roosevelt Island,green,32
+taxi_only,209,Manhattan,Seaport,green,2
+taxi_only,229,Manhattan,Sutton Place/Turtle Bay North,green,1
+taxi_only,230,Manhattan,Times Sq/Theatre District,green,1
+taxi_only,231,Manhattan,TriBeCa/Civic Center,green,1
+taxi_only,232,Manhattan,Two Bridges/Seward Park,green,1
+taxi_only,236,Manhattan,Upper East Side North,green,322
+taxi_only,237,Manhattan,Upper East Side South,green,1
+taxi_only,238,Manhattan,Upper West Side North,green,17
+taxi_only,239,Manhattan,Upper West Side South,green,2
+taxi_only,243,Manhattan,Washington Heights North,green,151
+taxi_only,244,Manhattan,Washington Heights South,green,1297
+taxi_only,262,Manhattan,Yorkville East,green,3
+taxi_only,263,Manhattan,Yorkville West,green,51
+taxi_only,265,N/A,Outside of NYC,green,29
+taxi_only,7,Queens,Astoria,green,1514
+taxi_only,9,Queens,Auburndale,green,5
+taxi_only,10,Queens,Baisley Park,green,22
+taxi_only,15,Queens,Bay Terrace/Fort Totten,green,6
+taxi_only,16,Queens,Bayside,green,9
+taxi_only,19,Queens,Bellerose,green,9
+taxi_only,27,Queens,Breezy Point/Fort Tilden/Riis Beach,green,1
+taxi_only,28,Queens,Briarwood/Jamaica Hills,green,44
+taxi_only,38,Queens,Cambria Heights,green,7
+taxi_only,53,Queens,College Point,green,15
+taxi_only,56,Queens,Corona,green,38
+taxi_only,57,Queens,Corona,green,4
+taxi_only,64,Queens,Douglaston,green,1
+taxi_only,70,Queens,East Elmhurst,green,52
+taxi_only,73,Queens,East Flushing,green,14
+taxi_only,82,Queens,Elmhurst,green,2605
+taxi_only,83,Queens,Elmhurst/Maspeth,green,523
+taxi_only,86,Queens,Far Rockaway,green,19
+taxi_only,92,Queens,Flushing,green,378
+taxi_only,93,Queens,Flushing Meadows-Corona Park,green,14
+taxi_only,95,Queens,Forest Hills,green,2899
+taxi_only,96,Queens,Forest Park/Highland Park,green,1
+taxi_only,98,Queens,Fresh Meadows,green,13
+taxi_only,101,Queens,Glen Oaks,green,6
+taxi_only,102,Queens,Glendale,green,18
+taxi_only,117,Queens,Hammels/Arverne,green,9
+taxi_only,121,Queens,Hillcrest/Pomonok,green,35
+taxi_only,122,Queens,Hollis,green,20
+taxi_only,124,Queens,Howard Beach,green,7
+taxi_only,132,Queens,JFK Airport,green,22
+taxi_only,129,Queens,Jackson Heights,green,1386
+taxi_only,130,Queens,Jamaica,green,1336
+taxi_only,131,Queens,Jamaica Estates,green,23
+taxi_only,134,Queens,Kew Gardens,green,647
+taxi_only,135,Queens,Kew Gardens Hills,green,25
+taxi_only,138,Queens,LaGuardia Airport,green,29
+taxi_only,139,Queens,Laurelton,green,12
+taxi_only,145,Queens,Long Island City/Hunters Point,green,106
+taxi_only,146,Queens,Long Island City/Queens Plaza,green,98
+taxi_only,157,Queens,Maspeth,green,87
+taxi_only,160,Queens,Middle Village,green,14
+taxi_only,171,Queens,Murray Hill-Queens,green,15
+taxi_only,173,Queens,North Corona,green,57
+taxi_only,175,Queens,Oakland Gardens,green,2
+taxi_only,179,Queens,Old Astoria,green,187
+taxi_only,180,Queens,Ozone Park,green,9
+taxi_only,191,Queens,Queens Village,green,32
+taxi_only,192,Queens,Queensboro Hill,green,13
+taxi_only,193,Queens,Queensbridge/Ravenswood,green,337
+taxi_only,196,Queens,Rego Park,green,324
+taxi_only,197,Queens,Richmond Hill,green,45
+taxi_only,198,Queens,Ridgewood,green,22
+taxi_only,201,Queens,Rockaway Park,green,2
+taxi_only,203,Queens,Rosedale,green,6
+taxi_only,205,Queens,Saint Albans,green,12
+taxi_only,207,Queens,Saint Michaels Cemetery/Woodside,green,12
+taxi_only,215,Queens,South Jamaica,green,41
+taxi_only,216,Queens,South Ozone Park,green,48
+taxi_only,218,Queens,Springfield Gardens North,green,12
+taxi_only,219,Queens,Springfield Gardens South,green,10
+taxi_only,223,Queens,Steinway,green,369
+taxi_only,226,Queens,Sunnyside,green,197
+taxi_only,252,Queens,Whitestone,green,10
+taxi_only,253,Queens,Willets Point,green,3
+taxi_only,258,Queens,Woodhaven,green,12
+taxi_only,260,Queens,Woodside,green,977
+taxi_only,23,Staten Island,Bloomfield/Emerson Hill,green,1
+taxi_only,118,Staten Island,Heartland Village/Todt Hill,green,1
+taxi_only,206,Staten Island,Saint George/New Brighton,green,2
+taxi_only,221,Staten Island,Stapleton,green,1
+taxi_only,264,Unknown,N/A,green,104

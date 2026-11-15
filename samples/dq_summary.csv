@@ -1,0 +1,2 @@
+taxi_type,months,failed_months,source_rows_footer,read_rows,written_rows,out_of_month,dropoff_before_pickup,negative_amount,negative_distance,passenger_count_invalid,pickup_location_null,shared,reject_rate
+green,1,0,56551,56551,56289,2,76,186,0,3927,0,0,0.004633

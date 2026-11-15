@@ -1,0 +1,2 @@
+year_month,taxi_type,source_rows_footer,read_rows,written_rows,gold_trips,removed_rows,reject_rate,status,gold_matches_silver
+2024-01,green,56551,56551,56289,56289,262,0.004633,PASS,True

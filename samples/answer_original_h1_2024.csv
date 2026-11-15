@@ -1,0 +1,3 @@
+view,taxi_type,trips,share_pct,rank
+all_types,green,56289,100.0,1
+taxi_only,green,56289,100.0,1

@@ -1,0 +1,187 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: NYC TLC trip-type lakehouse (S3 + Glue/Iceberg + Step Functions + Athena). Learner Lab - uses LabRole, creates no IAM.
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: New data-lake bucket (bronze/silver/gold/warehouse/scripts/dq_reports).
+  AthenaResultsBucketName:
+    Type: String
+  LabRoleArn:
+    Type: String
+    Description: arn:aws:iam::<account>:role/LabRole
+  AlertEmail:
+    Type: String
+  MaxConcurrency:
+    Type: Number
+    Default: 3
+    Description: Months processed in parallel by the Step Functions Map.
+  TableFormat:
+    Type: String
+    Default: iceberg
+    AllowedValues: [iceberg, parquet]
+  TaxiTypes:
+    Type: String
+    Default: '["yellow","green","fhv","hvfhv"]'
+  ZoneLookupUrl:
+    Type: String
+    Default: https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
+  ZonesGeoJsonUrl:
+    Type: String
+    Default: https://data.cityofnewyork.us/api/geospatial/8meu-9t5y?method=export&format=GeoJSON
+
+Resources:
+  DataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  AthenaResultsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref AthenaResultsBucketName
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-query-results
+            Status: Enabled
+            ExpirationInDays: 7
+
+  Database:
+    Type: AWS::Glue::Database
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      DatabaseInput:
+        Name: nyc_taxi
+
+  IngestJob:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: nyc-taxi-ingest
+      Role: !Ref LabRoleArn
+      Command:
+        Name: pythonshell
+        PythonVersion: "3.9"
+        ScriptLocation: !Sub s3://${BucketName}/scripts/ingestion/ingest.py
+      MaxCapacity: 1
+      ExecutionProperty:
+        MaxConcurrentRuns: !Ref MaxConcurrency
+      DefaultArguments:
+        library-set: analytics
+        --extra-py-files: !Sub s3://${BucketName}/scripts/lib/job_utils.py,s3://${BucketName}/scripts/lib/taxi_types.py
+        --BUCKET: !Ref BucketName
+        --TAXI_TYPES: !Ref TaxiTypes
+        --ZONE_LOOKUP_URL: !Ref ZoneLookupUrl
+        --ZONES_GEOJSON_URL: !Ref ZonesGeoJsonUrl
+
+  SilverJob:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: nyc-taxi-bronze-to-silver
+      Role: !Ref LabRoleArn
+      GlueVersion: "4.0"
+      Command:
+        Name: glueetl
+        PythonVersion: "3"
+        ScriptLocation: !Sub s3://${BucketName}/scripts/transform/bronze_to_silver.py
+      WorkerType: G.1X
+      NumberOfWorkers: 4
+      ExecutionProperty:
+        MaxConcurrentRuns: !Ref MaxConcurrency
+      DefaultArguments:
+        --datalake-formats: iceberg
+        --extra-py-files: !Sub s3://${BucketName}/scripts/lib/job_utils.py,s3://${BucketName}/scripts/lib/taxi_types.py,s3://${BucketName}/scripts/lib/lake.py
+        --BUCKET: !Ref BucketName
+        --TABLE_FORMAT: !Ref TableFormat
+        --TAXI_TYPES: !Ref TaxiTypes
+        --MAX_REJECT_RATE: "0.10"
+        --enable-continuous-cloudwatch-log: "true"
+
+  GoldJob:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: nyc-taxi-silver-to-gold
+      Role: !Ref LabRoleArn
+      GlueVersion: "4.0"
+      Command:
+        Name: glueetl
+        PythonVersion: "3"
+        ScriptLocation: !Sub s3://${BucketName}/scripts/transform/silver_to_gold.py
+      WorkerType: G.1X
+      NumberOfWorkers: 2
+      ExecutionProperty:
+        MaxConcurrentRuns: !Ref MaxConcurrency
+      DefaultArguments:
+        --datalake-formats: iceberg
+        --extra-py-files: !Sub s3://${BucketName}/scripts/lib/job_utils.py,s3://${BucketName}/scripts/lib/taxi_types.py,s3://${BucketName}/scripts/lib/lake.py
+        --BUCKET: !Ref BucketName
+        --TABLE_FORMAT: !Ref TableFormat
+        --TAXI_TYPES: !Ref TaxiTypes
+        --MAX_REJECT_RATE: "0.10"
+        --enable-continuous-cloudwatch-log: "true"
+
+  DimZoneJob:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: nyc-taxi-dim-zone
+      Role: !Ref LabRoleArn
+      GlueVersion: "4.0"
+      Command:
+        Name: glueetl
+        PythonVersion: "3"
+        ScriptLocation: !Sub s3://${BucketName}/scripts/transform/dim_zone.py
+      WorkerType: G.1X
+      NumberOfWorkers: 2
+      DefaultArguments:
+        --datalake-formats: iceberg
+        --extra-py-files: !Sub s3://${BucketName}/scripts/lib/job_utils.py,s3://${BucketName}/scripts/lib/taxi_types.py,s3://${BucketName}/scripts/lib/lake.py
+        --BUCKET: !Ref BucketName
+        --TABLE_FORMAT: !Ref TableFormat
+        --TAXI_TYPES: !Ref TaxiTypes
+        --MAX_REJECT_RATE: "0.10"
+        --enable-continuous-cloudwatch-log: "true"
+
+  AlertTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      Subscription:
+        - Protocol: email
+          Endpoint: !Ref AlertEmail
+
+  StateMachine:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      StateMachineName: nyc-taxi-pipeline
+      RoleArn: !Ref LabRoleArn
+      DefinitionS3Location: ../orchestration/state_machine.json  # uploaded by `aws cloudformation package`
+      DefinitionSubstitutions:
+        MaxConcurrency: !Ref MaxConcurrency
+        IngestJob: !Ref IngestJob
+        SilverJob: !Ref SilverJob
+        GoldJob: !Ref GoldJob
+        DimZoneJob: !Ref DimZoneJob
+        AlertTopicArn: !Ref AlertTopic
+
+  MonthlySchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Monthly run for the newest TLC month (disabled by default).
+      ScheduleExpression: cron(0 6 5 * ? *)
+      State: DISABLED
+      Targets:
+        - Id: pipeline
+          Arn: !Ref StateMachine
+          RoleArn: !Ref LabRoleArn
+          Input: !Sub '{"months": ["latest"], "taxi_types": ${TaxiTypes}}'
+
+Outputs:
+  DataBucketName:
+    Value: !Ref DataBucket
+  AthenaResultsBucketName:
+    Value: !Ref AthenaResultsBucket
+  StateMachineArn:
+    Value: !Ref StateMachine

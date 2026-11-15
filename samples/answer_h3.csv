@@ -1,0 +1,5 @@
+scope,shared,taxi_type,trips,rank
+all_types,excl_shared,green,56289,1
+all_types,with_shared,green,56289,1
+taxi_only,excl_shared,green,56289,1
+taxi_only,with_shared,green,56289,1
